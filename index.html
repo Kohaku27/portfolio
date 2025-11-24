@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - 5062 橘</title>
+    <!-- Font Awesome CDN for icons (External image use is forbidden, so icons are used instead) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: M PLUS Rounded 1c (親しみやすく、かわいい印象を与えるフォント) を追加 -->
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+         * CSS: 青と白を基調とした清潔感のあるモダンデザイン
+         */
+        :root {
+            --color-primary: #007bff;     /* Core Blue */
+            --color-secondary: #6c757d;   /* Secondary Gray */
+            --color-background: #f8f9fa; /* Light Background */
+            --color-text: #212529;      /* Dark Text */
+            --color-white: #ffffff;
+            /* フォントを「M PLUS Rounded 1c」に変更 */
+            --font-main: 'M PLUS Rounded 1c', sans-serif; 
+            --border-radius: 8px;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Base Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* フォントを更新 */
+            font-family: var(--font-main);
+            line-height: 1.7;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            scroll-behavior: smooth;
+            padding-top: 60px; /* Space for fixed header */
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header (1. ヘッダー) */
+        header {
+            background-color: var(--color-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .header-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--color-text);
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--color-primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* 2. 自己紹介セクション */
+        #about {
+            text-align: center;
+            background-color: var(--color-white);
+            padding-top: 100px;
+        }
+
+        .profile-box {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .profile-box i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .profile-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .profile-box p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* 興味・関心の強調 */
+        .profile-interests {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+            text-align: left;
+        }
+        
+        .profile-interests strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #d1e7ff; /* Lighter blue for label */
+        }
+
+
+        /* 3. ガクチカセクション */
+        #gakuchika {
+            background-color: var(--color-background);
+        }
+        
+        .gakuchika-content {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            text-align: left;
+        }
+
+        .gakuchika-section h3 {
+            color: var(--color-primary);
+            font-size: 1.4rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .gakuchika-section h3 i {
+            margin-right: 10px;
+        }
+
+        .gakuchika-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+        
+        .gakuchika-section li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .gakuchika-section li::before {
+            content: "\f00c"; /* Checkmark icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--color-primary);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        /* 4. フッター */
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            background-color: var(--color-text); /* Dark background for contrast */
+            color: var(--color-white);
+            font-size: 0.9rem;
+        }
+
+
+        /* ===================================================
+           レスポンシブデザイン (Mobile Optimization)
+           =================================================== */
+        @media (max-width: 768px) {
+            
+            body {
+                padding-top: 55px; /* Adjust header space */
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+
+            /* Header */
+            nav {
+                flex-direction: column;
+                padding: 10px 20px;
+            }
+            
+            .header-title {
+                margin-bottom: 10px;
+            }
+
+            .nav-links a {
+                margin: 0 10px;
+                font-size: 0.9rem;
+            }
+            
+            /* Section padding */
+            section {
+                padding: 60px 0;
+            }
+
+            /* About */
+            #about {
+                padding-top: 80px;
+            }
+
+            .profile-box {
+                padding: 30px;
+            }
+
+            /* Gakuchika */
+            .gakuchika-content {
+                padding: 20px;
+            }
+            
+            .gakuchika-section h3 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. ヘッダー -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#about" class="header-title">My Portfolio</a>
+                <div class="nav-links">
+                    <a href="#about">自己紹介</a>
+                    <a href="#gakuchika">ガクチカ</a>
+                    <a href="#contact">コンタクト</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. 自己紹介セクション -->
+    <section id="about" class="container">
+        <h2><i class="fas fa-user-circle"></i> 自己紹介 (About Me)</h2>
+
+        <div class="profile-box">
+            <!-- 画像の代わりのアイコン -->
+            <i class="fas fa-laptop-code"></i> 
+            <h3>5062 橘</h3>
+            <p>所属: NUCST (情報系大学生)</p>
+            
+            <!-- 興味・関心と強みを更新 -->
+            <div class="profile-interests">
+                <strong>興味・関心</strong>
+                <p>音声認識、AI倫理・情報哲学</p>
+                <strong>強み</strong>
+                <p>個の課題と可能性を引き出す深い傾聴力と、目標達成に向けた粘り強い課題解決への情熱</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 学生時代に力を入れたこと (ガクチカ) -->
+    <section id="gakuchika" class="container">
+        <h2><i class="fas fa-medal"></i> 学生時代に力を入れたこと (Gakuchika)</h2>
+        
+        <div class="gakuchika-content">
+
+            <p style="font-size: 1.1rem; font-weight: 600; color: var(--color-primary); margin-bottom: 20px;">
+                テーマ: 塾講師のアルバイトにおける生徒の成績向上
+            </p>
+
+            <div class="gakuchika-section">
+                <h3><i class="fas fa-exclamation-triangle"></i> 状況・課題</h3>
+                <p>
+                    1年間で延べ44名の生徒を担当する中で、多種多様な課題を抱える生徒全員の成績を継続的に伸ばすという難題に直面しました。
+                    特に、モチベーション維持と学習進度の最適化が喫緊の課題でした。
+                </p>
+            </div>
+
+            <div class="gakuchika-section">
+                <h3><i class="fas fa-tasks"></i> 行動</h3>
+                <ul>
+                    <li>生徒一人ひとりの特性やモチベーション源を把握するため、**個別対話を徹底**しました。</li>
+                    <li>他の講師とも積極的に連携し、生徒の科目ごとの進捗や学習傾向に関する**情報を共有**しました。</li>
+                    <li>共有データに基づき、生徒のレベルに合わせた「オーダーメイドテスト」を作成し、毎週フィードバックを実施する**PDCAサイクルをチーム全体で回しました**。</li>
+                </ul>
+            </div>
+
+            <div class="gakuchika-section">
+                <h3><i class="fas fa-chart-line"></i> 結果・学び</h3>
+                <p>
+                    この個別のフォローアップとチーム連携の結果、担当した**全生徒のテスト平均点を15点向上**させることに成功しました。
+                </p>
+                <p style="font-weight: 500; margin-top: 15px;">
+                    この経験から、目標達成には、個の能力だけでなく、他者の視点を取り入れ、**チームで協力する重要性**を学びました。
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- コンタクトセクション (簡易版) -->
+    <section id="contact" class="container">
+        <h2><i class="fas fa-envelope"></i> コンタクト</h2>
+        <p style="text-align: center;">
+            <a href="mailto:your.email@example.com" style="color: var(--color-primary); text-decoration: none; font-size: 1.1rem;">
+                ご連絡はこちらから
+            </a>
+        </p>
+    </section>
+
+    <!-- 4. フッター -->
+    <footer>
+        <div class="container">
+            <p>Copyright &copy; 2025 5062 TACHIBANA. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

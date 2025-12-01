@@ -4,24 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio - 5062 橘</title>
-    <!-- Font Awesome CDN for icons (External image use is forbidden, so icons are used instead) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Google Fonts: M PLUS Rounded 1c (親しみやすく、かわいい印象を与えるフォント) を追加 -->
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN for icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Inter (Professional and Modern) and Noto Sans JP (Sharp and Legible) --><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /*
          * CSS: 青と白を基調とした清潔感のあるモダンデザイン
+         * CSS: 黒基調、青アクセント、白テキストのスタイリッシュなモダンデザイン
          */
         :root {
-            --color-primary: #007bff;     /* Core Blue */
-            --color-secondary: #6c757d;   /* Secondary Gray */
-            --color-background: #f8f9fa; /* Light Background */
-            --color-text: #212529;      /* Dark Text */
-            --color-white: #ffffff;
-            /* フォントを「M PLUS Rounded 1c」に変更 */
-            --font-main: 'M PLUS Rounded 1c', sans-serif; 
-            --border-radius: 8px;
-            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --color-main-dark: #1a1a1a;     /* Main Background (Black/Very Dark Gray) */
+            --color-secondary-dark: #2c2c2c;/* Secondary Background */
+            --color-accent: #00bfff;       /* Accent Color (Sky Blue) */
+            --color-icon-dog: #D2B48C;     /* Dog Icon Color (Milk Tea/Tan) */
+            --color-text-light: #f0f0f0;   /* Light Text */
+            --color-text-muted: #aaaaaa;   /* Muted Text */
+            --font-main: 'Inter', 'Noto Sans JP', sans-serif; 
+            --border-radius: 6px;
+            --shadow-subtle: 0 4px 10px rgba(0, 0, 0, 0.5); /* 闇に溶け込むような影 */
         }
 
         /* Base Reset and Typography */
@@ -32,26 +31,25 @@
         }
 
         body {
-            /* フォントを更新 */
             font-family: var(--font-main);
-            line-height: 1.7;
-            color: var(--color-text);
-            background-color: var(--color-background);
+            line-height: 1.8;
+            color: var(--color-text-light);
+            background-color: var(--color-main-dark); /* メイン背景色 */
             scroll-behavior: smooth;
-            padding-top: 60px; /* Space for fixed header */
+            padding-top: 60px;
         }
 
         /* Layout Container */
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         /* Header (1. ヘッダー) */
         header {
-            background-color: var(--color-white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: var(--color-secondary-dark); /* ヘッダーを濃いグレーに */
+            box-shadow: var(--shadow-subtle);
             position: fixed;
             width: 100%;
             top: 0;
@@ -69,122 +67,180 @@
         .header-title {
             font-size: 1.6rem;
             font-weight: 700;
-            color: var(--color-primary);
+            color: var(--color-accent); /* アクセントカラーを適用 */
             text-decoration: none;
         }
 
         .nav-links a {
-            color: var(--color-secondary);
+            color: var(--color-text-light);
             text-decoration: none;
-            font-weight: 500;
-            margin-left: 20px;
+            font-weight: 400;
+            margin-left: 25px;
             transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
         }
 
         .nav-links a:hover {
-            color: var(--color-primary);
+            color: var(--color-accent);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* Section Styling */
         section {
-            padding: 80px 0;
+            padding: 100px 0;
+            border-bottom: 1px solid var(--color-secondary-dark);
         }
 
         h2 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: var(--color-text);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-text-light);
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             position: relative;
         }
         
         h2::after {
             content: '';
             display: block;
-            width: 60px;
+            width: 70px;
             height: 4px;
-            background-color: var(--color-primary);
-            margin: 10px auto 0;
+            background-color: var(--color-accent); /* アンダーラインに青を適用 */
+            margin: 15px auto 0;
             border-radius: 2px;
         }
 
         /* 2. 自己紹介セクション */
         #about {
             text-align: center;
-            background-color: var(--color-white);
-            padding-top: 100px;
+            background-color: var(--color-main-dark);
+            padding-top: 120px;
+            padding-bottom: 100px;
         }
 
         .profile-box {
             display: inline-block;
-            background-color: var(--color-primary);
-            color: var(--color-white);
+            background-color: var(--color-secondary-dark); /* 黒背景より一段明るいグレー */
+            color: var(--color-text-light);
             padding: 40px;
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow-light);
+            box-shadow: var(--shadow-subtle);
             margin-bottom: 30px;
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
+            border-left: 3px solid var(--color-accent); /* アクセントライン */
         }
 
-        .profile-box i {
-            font-size: 3rem;
-            margin-bottom: 15px;
+        .profile-box i.fa-dog {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--color-icon-dog); /* 犬アイコンを茶色に設定 */
         }
+        
+        h2 i.fa-dog {
+            color: var(--color-icon-dog); /* 見出しの犬アイコンも茶色に設定 */
+        }
+
+        /* 犬アイコンの震えアニメーション */
+        @keyframes subtle-shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-2px); }
+            50% { transform: translateX(2px); }
+            75% { transform: translateX(-2px); }
+        }
+
+        .shake-dog {
+            display: inline-block; /* transformが効くように */
+            animation: subtle-shake 0.5s ease-in-out infinite; /* アニメーション適用 */
+        }
+
 
         .profile-box h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 5px;
         }
 
         .profile-box p {
             font-size: 1.1rem;
+            color: var(--color-text-light);
             opacity: 0.9;
         }
         
         /* 興味・関心の強調 */
         .profile-interests {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.5);
-            font-size: 1rem;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid var(--color-main-dark);
+            background-color: #2c2c2c;
+            padding: 20px;
+            border-radius: var(--border-radius);
             text-align: left;
+            box-shadow: 0 0 5px rgba(0, 191, 255, 0.1);
         }
         
         .profile-interests strong {
             display: block;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #d1e7ff; /* Lighter blue for label */
+            margin-bottom: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+        
+        .profile-interests p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: var(--color-text-light);
         }
 
 
         /* 3. ガクチカセクション */
         #gakuchika {
-            background-color: var(--color-background);
+            background-color: var(--color-main-dark);
         }
         
         .gakuchika-content {
-            background-color: var(--color-white);
-            padding: 30px;
+            background-color: var(--color-secondary-dark);
+            padding: 40px;
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow-light);
+            box-shadow: var(--shadow-subtle);
             text-align: left;
         }
 
         .gakuchika-section h3 {
-            color: var(--color-primary);
-            font-size: 1.4rem;
-            margin-top: 25px;
-            margin-bottom: 10px;
+            color: var(--color-accent); /* アクセントカラーを適用 */
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
             padding-bottom: 5px;
-            border-bottom: 2px solid #e9ecef;
+            border-bottom: 1px solid #444; /* 濃い境界線 */
+        }
+        
+        .gakuchika-section:first-child h3 {
+            margin-top: 0;
         }
         
         .gakuchika-section h3 i {
             margin-right: 10px;
+        }
+        
+        .gakuchika-section p {
+            color: var(--color-text-light);
         }
 
         .gakuchika-section ul {
@@ -196,15 +252,16 @@
         .gakuchika-section li {
             position: relative;
             padding-left: 30px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-size: 1rem;
+            color: var(--color-text-light);
         }
 
         .gakuchika-section li::before {
-            content: "\f00c"; /* Checkmark icon */
+            content: "\f058"; /* Check-circle icon */
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
-            color: var(--color-primary);
+            color: var(--color-accent);
             position: absolute;
             left: 0;
             top: 0;
@@ -213,10 +270,15 @@
         /* 4. フッター */
         footer {
             text-align: center;
-            padding: 25px 0;
-            background-color: var(--color-text); /* Dark background for contrast */
-            color: var(--color-white);
+            padding: 30px 0;
+            background-color: var(--color-secondary-dark);
+            color: var(--color-text-muted);
             font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--color-accent);
+            text-decoration: none;
         }
 
 
@@ -226,11 +288,11 @@
         @media (max-width: 768px) {
             
             body {
-                padding-top: 55px; /* Adjust header space */
+                padding-top: 55px;
             }
 
             h2 {
-                font-size: 1.8rem;
+                font-size: 2rem;
                 margin-bottom: 40px;
             }
 
@@ -245,8 +307,8 @@
             }
 
             .nav-links a {
-                margin: 0 10px;
-                font-size: 0.9rem;
+                margin: 0 8px;
+                font-size: 0.85rem;
             }
             
             /* Section padding */
@@ -265,19 +327,18 @@
 
             /* Gakuchika */
             .gakuchika-content {
-                padding: 20px;
+                padding: 25px;
             }
             
             .gakuchika-section h3 {
-                font-size: 1.25rem;
+                font-size: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. ヘッダー -->
-    <header>
+    <!-- 1. ヘッダー --><header>
         <div class="container">
             <nav>
                 <a href="#about" class="header-title">My Portfolio</a>
@@ -290,38 +351,29 @@
         </div>
     </header>
 
-    <!-- 2. 自己紹介セクション -->
-    <section id="about" class="container">
-        <h2><i class="fas fa-user-circle"></i> 自己紹介 (About Me)</h2>
-
-        <div class="profile-box">
-            <!-- 画像の代わりのアイコン -->
-            <i class="fas fa-laptop-code"></i> 
-            <h3>5062 橘</h3>
+    <!-- 2. 自己紹介セクション --><section id="about" class="container">
+        <h2><i class="fas fa-dog shake-dog"></i> ABOUT ME</h2> <!-- shake-dogクラスを追加 --><div class="profile-box">
+            <!-- 画像の代わりのアイコン --><i class="fas fa-dog shake-dog"></i> <!-- shake-dogクラスを追加 --><h3>5062 橘</h3>
             <p>所属: NUCST (情報系大学生)</p>
             
-            <!-- 興味・関心と強みを更新 -->
-            <div class="profile-interests">
-                <strong>興味・関心</strong>
+            <!-- 興味・関心と強みを更新 --><div class="profile-interests">
+                <strong><i class="fas fa-lightbulb"></i> 興味・関心</strong>
                 <p>音声認識、AI倫理・情報哲学</p>
-                <strong>強み</strong>
+                <strong><i class="fas fa-fist-raised"></i> 強み</strong>
                 <p>個の課題と可能性を引き出す深い傾聴力と、目標達成に向けた粘り強い課題解決への情熱</p>
             </div>
         </div>
     </section>
 
-    <!-- 3. 学生時代に力を入れたこと (ガクチカ) -->
-    <section id="gakuchika" class="container">
-        <h2><i class="fas fa-medal"></i> 学生時代に力を入れたこと (Gakuchika)</h2>
-        
-        <div class="gakuchika-content">
+    <!-- 3. 学生時代に力を入れたこと (ガクチカ) --><section id="gakuchika" class="container">
+        <h2><i class="fas fa-dog"></i> GAKUCHIKA</h2> <!-- 犬アイコンのまま --><div class="gakuchika-content">
 
-            <p style="font-size: 1.1rem; font-weight: 600; color: var(--color-primary); margin-bottom: 20px;">
+            <p style="font-size: 1.2rem; font-weight: 600; color: var(--color-accent); margin-bottom: 25px;">
                 テーマ: 塾講師のアルバイトにおける生徒の成績向上
             </p>
 
             <div class="gakuchika-section">
-                <h3><i class="fas fa-exclamation-triangle"></i> 状況・課題</h3>
+                <h3><i class="fas fa-stream"></i> 状況・課題 (Situation/Challenge)</h3>
                 <p>
                     1年間で延べ44名の生徒を担当する中で、多種多様な課題を抱える生徒全員の成績を継続的に伸ばすという難題に直面しました。
                     特に、モチベーション維持と学習進度の最適化が喫緊の課題でした。
@@ -329,7 +381,7 @@
             </div>
 
             <div class="gakuchika-section">
-                <h3><i class="fas fa-tasks"></i> 行動</h3>
+                <h3><i class="fas fa-project-diagram"></i> 行動 (Action)</h3>
                 <ul>
                     <li>生徒一人ひとりの特性やモチベーション源を把握するため、**個別対話を徹底**しました。</li>
                     <li>他の講師とも積極的に連携し、生徒の科目ごとの進捗や学習傾向に関する**情報を共有**しました。</li>
@@ -338,32 +390,30 @@
             </div>
 
             <div class="gakuchika-section">
-                <h3><i class="fas fa-chart-line"></i> 結果・学び</h3>
+                <h3><i class="fas fa-trophy"></i> 結果・学び (Result/Learning)</h3>
                 <p>
                     この個別のフォローアップとチーム連携の結果、担当した**全生徒のテスト平均点を15点向上**させることに成功しました。
                 </p>
-                <p style="font-weight: 500; margin-top: 15px;">
+                <p style="font-weight: 500; margin-top: 15px; color: var(--color-accent);">
                     この経験から、目標達成には、個の能力だけでなく、他者の視点を取り入れ、**チームで協力する重要性**を学びました。
                 </p>
+                
             </div>
 
         </div>
     </section>
 
-    <!-- コンタクトセクション (簡易版) -->
-    <section id="contact" class="container">
-        <h2><i class="fas fa-envelope"></i> コンタクト</h2>
-        <p style="text-align: center;">
-            <a href="mailto:your.email@example.com" style="color: var(--color-primary); text-decoration: none; font-size: 1.1rem;">
-                ご連絡はこちらから
+    <!-- コンタクトセクション (簡易版) --><section id="contact" class="container">
+        <h2><i class="fas fa-dog"></i> CONTACT</h2> <!-- 犬アイコンのまま --><p style="text-align: center; font-size: 1.1rem;">
+            <a href="mailto:your.email@example.com" style="color: var(--color-accent); text-decoration: none; font-weight: 600;">
+                <i class="fas fa-envelope"></i> your.email@example.com
             </a>
         </p>
     </section>
 
-    <!-- 4. フッター -->
-    <footer>
+    <!-- 4. フッター --><footer>
         <div class="container">
-            <p>Copyright &copy; 2025 5062 TACHIBANA. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: red;"></i> by Gemini. | Copyright &copy; 2025 5062 TACHIBANA. All rights reserved.</p>
         </div>
     </footer>
 
